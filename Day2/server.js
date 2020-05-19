@@ -1,7 +1,7 @@
 var http = require('http');
 var fs = require('fs');
 var url = require('url');
-const getData = require('./data');
+const Data = require('./data');
 
 
 http.createServer(async (request, response) => {
@@ -32,7 +32,7 @@ http.createServer(async (request, response) => {
     } else if (request.method == 'POST') {
         switch (request.url) {
             case '/crawl':
-                const data = await getData();
+                const data = await Data();
                 response.writeHead(200, {'Content-type': 'text/plain'})
                 response.end('Crawl successfully')
                 break;
